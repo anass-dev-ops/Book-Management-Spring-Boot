@@ -22,7 +22,7 @@ public class BookServiceImpl implements BookService{
 					"Angular", "TypeScript")
 			.forEach(title -> {
 			Book book = new Book();
-			book.setId(ct);
+			book.setId(Long.valueOf(books.size()));
 			book.setTitle(title);
 			book.setPrice("2"+(ct*234)+"dhs");
 			book.setDescription("description: " + title);
@@ -30,6 +30,7 @@ public class BookServiceImpl implements BookService{
 			book.setEdition("edition: 2.0" );
 			ct += 1L;
 			books.add(book);
+			//books.size();
 		});
 		
 		return books;
@@ -42,13 +43,14 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public Book addBook(Book book) {
+		book.setId(Long.valueOf(books.size()));
 		books.add(book);
 		return book;
 	}
 
 	@Override
 	public Book updateBook(Book book) {
-		return null;
+		return books.set(book.getId().intValue(), book);
 	}
 
 	@Override

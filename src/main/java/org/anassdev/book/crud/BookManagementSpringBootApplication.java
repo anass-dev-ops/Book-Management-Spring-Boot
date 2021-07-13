@@ -20,7 +20,7 @@ public class BookManagementSpringBootApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		bookService.getBooks();
+		bookService.initBooks();
 	}
 
 }

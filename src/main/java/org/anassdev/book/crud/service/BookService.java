@@ -6,6 +6,8 @@ import org.anassdev.book.crud.entity.Book;
 
 public interface BookService {
 	
+	void initBooks();
+	
 	List<Book> getBooks();
 	Book getBookById(Long id);
 	Book addBook(Book book);

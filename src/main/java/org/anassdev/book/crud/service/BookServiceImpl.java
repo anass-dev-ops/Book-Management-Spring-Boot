@@ -12,9 +12,9 @@ public class BookServiceImpl implements BookService{
 	
 	private ArrayList<Book> books;
 	private long ct;
-
+	
 	@Override
-	public List<Book> getBooks() {
+	public void initBooks() {
 		books = new ArrayList<Book>();
 		
 		ct = 1L;
@@ -32,7 +32,10 @@ public class BookServiceImpl implements BookService{
 			books.add(book);
 			//books.size();
 		});
-		
+	}
+
+	@Override
+	public List<Book> getBooks() {
 		return books;
 	}
 

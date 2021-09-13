@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.anassdev.book.crud.entity.Book;
+import org.anassdev.book.crud.repositories.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,6 +14,9 @@ public class BookServiceImpl implements BookService{
 	
 	private ArrayList<Book> books;
 	private long ct;
+	
+	@Autowired
+	private BookRepository bookRepository;
 	
 	@Override
 	public void initBooks() {
@@ -38,19 +43,17 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public List<Book> getBooks() {
-		return books;
+		return bookRepository.findAll();
 	}
 
 	@Override
 	public Book getBookById(Long id) {
-		return books.get(id.intValue());
+		return bookRepository.findById(id).get();
 	}
 
 	@Override
 	public Book addBook(Book book) {
-		book.setId(Long.valueOf(books.size()));
-		books.add(book);
-		return book;
+		return bookRepository.save(book);
 	}
 
 	@Override

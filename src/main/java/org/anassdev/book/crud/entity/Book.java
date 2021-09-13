@@ -2,16 +2,32 @@ package org.anassdev.book.crud.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="books")
 public class Book implements Serializable{
 
 	private static final long serialVersionUID = 228846996907232220L;
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@Column(name="title", length=200)
 	private String title;
+	@Column(name="price", length=20)
 	private String price;
+	@Column(name="author", length=100)
 	private String author;
+	@Column(name="edition", length=100)
 	private String edition;
+	@Column(name="lang", length=20)
 	private String lang;
+	@Column(name="pages_number", length=20)
 	private String pagesNumber;
 	public Long getId() {
 		return id;

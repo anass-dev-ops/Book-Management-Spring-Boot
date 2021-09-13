@@ -25,9 +25,11 @@ public class BookServiceImpl implements BookService{
 			book.setId(Long.valueOf(books.size()));
 			book.setTitle(title);
 			book.setPrice("2"+(ct*234)+"dhs");
-			book.setDescription("description: " + title);
 			book.setAuthor("author: " + title);
 			book.setEdition("edition: 2.0" );
+			book.setLang("English");
+			book.setPagesNumber("239");
+			
 			ct += 1L;
 			books.add(book);
 			//books.size();

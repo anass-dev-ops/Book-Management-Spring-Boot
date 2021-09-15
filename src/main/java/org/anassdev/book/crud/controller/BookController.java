@@ -1,6 +1,4 @@
 package org.anassdev.book.crud.controller;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import org.anassdev.book.crud.entity.Book;
@@ -39,7 +37,6 @@ public class BookController {
 	
 	@PostMapping("/books")
 	public Book addBook(@RequestBody Book book) {
-		System.out.println("=====>  " + book.getTitle());
 		return bookService.addBook(book);
 	}
 	
@@ -49,8 +46,9 @@ public class BookController {
 	}
 	
 	@DeleteMapping("/books/{id}")
-	public Book deleteBookById(@PathVariable Long id) {
-		return bookService.deleteBookById(id);
+	public String deleteBookById(@PathVariable Long id) {
+		bookService.deleteBookById(id);
+		return "successfully deleted";
 	}	
 	
 }
